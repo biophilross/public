@@ -177,5 +177,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># What do you see?</span>
 <span class="co"># What if we ran this just on genes.gff?</span>
 <span class="kw">cat</span> genes.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr</code></pre></div>
+<h2 id="writing-scripts">Writing scripts</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Why don&#39;t we save those commands to a script and run it again</span>
+<span class="kw">echo</span> <span class="st">&#39;# This is a script that counts things&#39;</span> <span class="kw">&gt;</span> script.sh
+<span class="kw">echo</span> <span class="st">&#39;&#39;</span> <span class="kw">&gt;&gt;</span> script.sh
+<span class="kw">echo</span> <span class="st">&#39;cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr&#39;</span> <span class="kw">&gt;&gt;</span> script.sh
+<span class="kw">echo</span> <span class="st">&#39;&#39;</span> <span class="kw">&gt;&gt;</span> script.sh
+<span class="kw">echo</span> <span class="st">&#39;cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr&#39;</span> <span class="kw">&gt;&gt;</span> script.sh</code></pre></div>
 </body>
 </html>

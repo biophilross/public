@@ -151,3 +151,15 @@ cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr
 # What if we ran this just on genes.gff?
 cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr
 ```
+
+## Writing scripts
+
+```bash
+# Why don't we save those commands to a script and run it again
+echo '# This is a script that counts things' > script.sh
+echo '' >> script.sh
+echo 'cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr' >> script.sh
+echo '' >> script.sh
+echo 'cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr' >> script.sh
+
+```
