@@ -63,5 +63,109 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="co"># download a file and pipe it to annotation.gff</span>
 <span class="kw">curl</span> -L https://www.dropbox.com/s/8xsygjp0pos1h76/annotation.gff?dl=0 <span class="kw">&gt;</span> annotation.gff</code></pre></div>
+<h2 id="moving-around-the-shell">Moving around the shell</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># what directory are you in? </span>
+<span class="kw">pwd</span>
+
+<span class="co"># what is inside this directory?</span>
+<span class="kw">ls</span>
+
+<span class="co"># how do I change into one of those directories?</span>
+<span class="kw">cd</span> workshop
+
+<span class="co"># now what am I looking at?</span>
+<span class="kw">ls</span>
+
+<span class="co"># how do you move back a directory?</span>
+<span class="co"># what if I want to move back more than one directory at a time?</span></code></pre></div>
+<h2 id="working-with-files-part-1">Working with files part 1</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># switch back to workshop directory</span>
+<span class="kw">cd</span> ~/workshop
+
+<span class="co"># make an empty file</span>
+<span class="kw">touch</span> empty_file
+
+<span class="co"># check to see what&#39;s changed</span>
+<span class="kw">ls</span>
+
+<span class="co"># make an empty directory</span>
+<span class="kw">mkdir</span> empty_directory
+
+<span class="co"># check to see what&#39;s changed</span>
+<span class="kw">ls</span>
+
+<span class="co"># make a copy of the empty_file and call it something different</span>
+<span class="kw">cp</span> empty_file something_different
+
+<span class="co"># check to see what&#39;s changed</span>
+<span class="kw">ls</span>
+
+<span class="co"># move the empty_file into the empty directory</span>
+<span class="kw">mv</span> empty_file empty_directory
+
+<span class="co"># what&#39;s inside the empty_directory?</span>
+<span class="kw">ls</span> empty_directory
+
+<span class="co"># we should rename it now, right?</span>
+<span class="kw">mv</span> empty_directory directory_with_a_file
+
+<span class="co"># how do I move into this directory and delete the file I just made?</span>
+<span class="co"># Hint: Use the &quot;rm&quot; command in combination with the ones you just learned</span></code></pre></div>
+<h2 id="working-with-files-part-2">Working with files part 2</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># let&#39;s print out the file I made you download before - what do you see?</span>
+<span class="kw">cat</span> annotation.gff
+
+<span class="co"># let&#39;s print only the start of the file</span>
+<span class="kw">head</span> annotation.gff
+
+<span class="co"># now only the end of the file</span>
+<span class="kw">tail</span> annotation.gff
+
+<span class="co"># let&#39;s look at the whole file at once</span>
+<span class="kw">less</span> annotation.gff
+
+<span class="co"># finally, let&#39;s look at all of the genes in the file</span>
+<span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff</code></pre></div>
+<h2 id="pipe-all-the-things">Pipe all the things</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Let&#39;s do some of the above using pipes</span>
+
+<span class="co"># what if we only want to grep the first several lines of the results for &quot;gene&quot;</span>
+<span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff <span class="kw">|</span> <span class="kw">head</span>
+
+<span class="co"># what if we only want the last results?</span>
+<span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff <span class="kw">|</span> <span class="kw">tail</span></code></pre></div>
+<h2 id="useful-commands-and-tips">Useful commands and tips</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># what if a directory or file name is very long?</span>
+<span class="co"># we want to prevent typos and prevent carpal tunnel syndrome</span>
+<span class="co"># let&#39;s say we want to move into directory_with_a_file</span>
+<span class="kw">cd</span> dir<span class="kw">&lt;</span>tab<span class="kw">&gt;</span>
+
+<span class="co"># This should become &quot;cd directory_with_a_file&quot;</span>
+<span class="co"># the tab key autocompletes for you to say you from typing</span>
+
+<span class="co"># What if I have a bunch of files all named the same thing?</span>
+<span class="co"># let&#39;s make a few more</span>
+<span class="kw">touch</span> file1 file2 file3
+
+<span class="co"># let&#39;s see what happened now</span>
+<span class="kw">ls</span>
+
+<span class="co"># what if I want to remove them all at once without having to retype the same first 4 letters everytime?</span>
+<span class="co"># we can use wildcards</span>
+<span class="kw">rm</span> -rf file*
+
+<span class="co"># This will remove all files that start with &quot;file&quot; and end with anything else</span>
+
+<span class="co"># What if I forget exactly what command I just ran?</span>
+<span class="co"># Use the history command for that</span>
+<span class="kw">history</span>
+
+<span class="co"># Here you can see in chronological order exactly what commands you ran during your session</span>
+
+<span class="co"># More useful commands are the following:</span>
+<span class="co"># sort, uniq, cut, wc, gzip, tar, find, man</span>
+<span class="co"># Let&#39;s build a complex command to print only the third column, sort that column, </span>
+<span class="co"># count how many unique hits we get, and sort it again in reverse order</span>
+<span class="kw">cat</span> annotation.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr</code></pre></div>
 </body>
 </html>
