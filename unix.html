@@ -133,7 +133,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff <span class="kw">|</span> <span class="kw">head</span>
 
 <span class="co"># what if we only want the last results?</span>
-<span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff <span class="kw">|</span> <span class="kw">tail</span></code></pre></div>
+<span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff <span class="kw">|</span> <span class="kw">tail</span>
+
+<span class="co"># let&#39;s print those results to a new file</span>
+<span class="kw">grep</span> <span class="st">&quot;gene&quot;</span> annotation.gff <span class="kw">&gt;</span> genes.gff
+
+<span class="co"># let&#39;s check what&#39;s changed</span>
+<span class="kw">ls</span></code></pre></div>
 <h2 id="useful-commands-and-tips">Useful commands and tips</h2>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># what if a directory or file name is very long?</span>
 <span class="co"># we want to prevent typos and prevent carpal tunnel syndrome</span>

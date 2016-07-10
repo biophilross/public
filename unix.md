@@ -103,6 +103,12 @@ grep "gene" annotation.gff | head
 
 # what if we only want the last results?
 grep "gene" annotation.gff | tail
+
+# let's print those results to a new file
+grep "gene" annotation.gff > genes.gff
+
+# let's check what's changed
+ls
 ```
 
 ## Useful commands and tips
