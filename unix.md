@@ -4,7 +4,7 @@ Copy any commands directly into your terminal.
 
 ## Download data
 
-```
+```bash
 # change to home directory
 cd ~
 
