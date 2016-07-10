@@ -142,7 +142,7 @@ history
 # Here you can see in chronological order exactly what commands you ran during your session
 
 # More useful commands are the following:
-# sort, uniq, cut, wc, gzip, tar, find, man
+# sort, uniq, cut, wc, gzip, tar, find, echo, man
 # Let's build a complex command to print only the third column, sort that column, 
 # count how many unique hits we get, and sort it again in reverse order
 cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr
@@ -154,12 +154,23 @@ cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr
 
 ## Writing scripts
 
-```bash
-# Why don't we save those commands to a script and run it again
-echo '# This is a script that counts things' > script.sh
-echo '' >> script.sh
-echo 'cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr' >> script.sh
-echo '' >> script.sh
-echo 'cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr' >> script.sh
+Here is the script; copy and paste this into a text editor like Sublime and save it as "script.sh"
 
+```bash
+# This is a script that counts things
+
+echo "How many different types of features are in my file?"
+echo ""
+cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr
+echo ""
+
+echo "How many genes are in my file?"
+echo ""
+cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr
+echo ""
+```
+This is the command you need to run the script
+
+```bash
+bash script.sh
 ```

@@ -169,7 +169,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># Here you can see in chronological order exactly what commands you ran during your session</span>
 
 <span class="co"># More useful commands are the following:</span>
-<span class="co"># sort, uniq, cut, wc, gzip, tar, find, man</span>
+<span class="co"># sort, uniq, cut, wc, gzip, tar, find, echo, man</span>
 <span class="co"># Let&#39;s build a complex command to print only the third column, sort that column, </span>
 <span class="co"># count how many unique hits we get, and sort it again in reverse order</span>
 <span class="kw">cat</span> annotation.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr
@@ -178,11 +178,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># What if we ran this just on genes.gff?</span>
 <span class="kw">cat</span> genes.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr</code></pre></div>
 <h2 id="writing-scripts">Writing scripts</h2>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Why don&#39;t we save those commands to a script and run it again</span>
-<span class="kw">echo</span> <span class="st">&#39;# This is a script that counts things&#39;</span> <span class="kw">&gt;</span> script.sh
-<span class="kw">echo</span> <span class="st">&#39;&#39;</span> <span class="kw">&gt;&gt;</span> script.sh
-<span class="kw">echo</span> <span class="st">&#39;cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr&#39;</span> <span class="kw">&gt;&gt;</span> script.sh
-<span class="kw">echo</span> <span class="st">&#39;&#39;</span> <span class="kw">&gt;&gt;</span> script.sh
-<span class="kw">echo</span> <span class="st">&#39;cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr&#39;</span> <span class="kw">&gt;&gt;</span> script.sh</code></pre></div>
+<p>Here is the script; copy and paste this into a text editor like Sublime and save it as &quot;script.sh&quot;</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># This is a script that counts things</span>
+
+<span class="kw">echo</span> <span class="st">&quot;How many different types of features are in my file?&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;&quot;</span>
+<span class="kw">cat</span> annotation.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr
+<span class="kw">echo</span> <span class="st">&quot;&quot;</span>
+
+<span class="kw">echo</span> <span class="st">&quot;How many genes are in my file?&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;&quot;</span>
+<span class="kw">cat</span> genes.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr
+<span class="kw">echo</span> <span class="st">&quot;&quot;</span></code></pre></div>
+<p>This is the command you need to run the script</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> script.sh</code></pre></div>
 </body>
 </html>
