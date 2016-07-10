@@ -142,7 +142,7 @@ history
 # Here you can see in chronological order exactly what commands you ran during your session
 
 # More useful commands are the following:
-# sort, uniq, cut, wc, gzip, tar, find, echo, man
+# sort, uniq, cut, wc, gzip, tar, find, echo, curl, wget, man
 # Let's build a complex command to print only the third column, sort that column, 
 # count how many unique hits we get, and sort it again in reverse order
 cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr
@@ -173,4 +173,33 @@ This is the command you need to run the script
 
 ```bash
 bash script.sh
+```
+
+## Instaling Krona
+
+```bash
+# let's switch back to our workshop directory
+cd ~/workshop
+
+# first let's download the file
+curl -L https://github.com/marbl/Krona/releases/download/v2.6.1/KronaTools-2.6.1.tar > KronaTools-2.6.1.tar
+
+# now let's unpack that file
+tar xvf KronaTools-2.6.1.tar
+
+# and change into the directory
+cd KronaTools-2.6.1
+
+# now run the following command
+# to install this software in the current directory
+./install.pl prefix $PWD
+
+# now run the following to make it available as a command
+echo "PATH=$PWD/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+
+# now type the following to make sure it worked correctly
+ktutil 
+
+# if you don't get an error, it worked!
 ```

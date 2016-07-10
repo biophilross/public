@@ -169,7 +169,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># Here you can see in chronological order exactly what commands you ran during your session</span>
 
 <span class="co"># More useful commands are the following:</span>
-<span class="co"># sort, uniq, cut, wc, gzip, tar, find, echo, man</span>
+<span class="co"># sort, uniq, cut, wc, gzip, tar, find, echo, curl, wget, man</span>
 <span class="co"># Let&#39;s build a complex command to print only the third column, sort that column, </span>
 <span class="co"># count how many unique hits we get, and sort it again in reverse order</span>
 <span class="kw">cat</span> annotation.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr
@@ -192,5 +192,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">echo</span> <span class="st">&quot;&quot;</span></code></pre></div>
 <p>This is the command you need to run the script</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">bash</span> script.sh</code></pre></div>
+<h2 id="instaling-krona">Instaling Krona</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># let&#39;s switch back to our workshop directory</span>
+<span class="kw">cd</span> ~/workshop
+
+<span class="co"># first let&#39;s download the file</span>
+<span class="kw">curl</span> -L https://github.com/marbl/Krona/releases/download/v2.6.1/KronaTools-2.6.1.tar <span class="kw">&gt;</span> KronaTools-2.6.1.tar
+
+<span class="co"># now let&#39;s unpack that file</span>
+<span class="kw">tar</span> xvf KronaTools-2.6.1.tar
+
+<span class="co"># and change into the directory</span>
+<span class="kw">cd</span> KronaTools-2.6.1
+
+<span class="co"># now run the following command</span>
+<span class="co"># to install this software in the current directory</span>
+<span class="kw">./install.pl</span> prefix <span class="ot">$PWD</span>
+
+<span class="co"># now run the following to make it available as a command</span>
+<span class="kw">echo</span> <span class="st">&quot;PATH=</span><span class="ot">$PWD</span><span class="st">/bin:</span><span class="ot">$PATH</span><span class="st">&quot;</span> <span class="kw">&gt;&gt;</span> ~/.bashrc
+<span class="kw">source</span> ~/.bashrc
+
+<span class="co"># now type the following to make sure it worked correctly</span>
+<span class="kw">ktutil</span> 
+
+<span class="co"># if you don&#39;t get an error, it worked!</span></code></pre></div>
 </body>
 </html>
