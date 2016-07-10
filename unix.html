@@ -172,6 +172,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># sort, uniq, cut, wc, gzip, tar, find, man</span>
 <span class="co"># Let&#39;s build a complex command to print only the third column, sort that column, </span>
 <span class="co"># count how many unique hits we get, and sort it again in reverse order</span>
-<span class="kw">cat</span> annotation.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr</code></pre></div>
+<span class="kw">cat</span> annotation.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr
+
+<span class="co"># What do you see?</span>
+<span class="co"># What if we ran this just on genes.gff?</span>
+<span class="kw">cat</span> genes.gff <span class="kw">|</span> <span class="kw">cut</span> -f 3 <span class="kw">|</span> <span class="kw">sort</span> <span class="kw">|</span> <span class="kw">uniq</span> -c <span class="kw">|</span> <span class="kw">sort</span> -gr</code></pre></div>
 </body>
 </html>

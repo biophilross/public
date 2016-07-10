@@ -146,4 +146,8 @@ history
 # Let's build a complex command to print only the third column, sort that column, 
 # count how many unique hits we get, and sort it again in reverse order
 cat annotation.gff | cut -f 3 | sort | uniq -c | sort -gr
+
+# What do you see?
+# What if we ran this just on genes.gff?
+cat genes.gff | cut -f 3 | sort | uniq -c | sort -gr
 ```
