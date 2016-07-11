@@ -208,4 +208,12 @@ ktutil
 # if you don't get an error, it worked!
 ```
 
+## Additional questions
 
+### Difference between control-z and control-c
+
+Both commands send a signal to the shell, but they are slightly different. Control-c will "send SIGINT which will interrupt the application. Usually causing it to abort, but this is up to the application to decide." Control-z will "send SIGTSTP to a foreground application, effectively putting it in the background, suspended."
+
+So they're similar, but useful for completely different purposes.
+
+Credit: http://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-shell

@@ -66,6 +66,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#useful-commands-and-tips">Useful commands and tips</a></li>
 <li><a href="#writing-scripts">Writing scripts</a></li>
 <li><a href="#instaling-krona">Instaling Krona</a></li>
+<li><a href="#additional-questions">Additional questions</a><ul>
+<li><a href="#difference-between-control-z-and-control-c">Difference between control-z and control-c</a></li>
+</ul></li>
 </ul>
 </nav>
 <p>Copy any commands directly into your terminal.</p>
@@ -235,5 +238,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">ktutil</span> 
 
 <span class="co"># if you don&#39;t get an error, it worked!</span></code></pre></div>
+<h2 id="additional-questions">Additional questions</h2>
+<h3 id="difference-between-control-z-and-control-c">Difference between control-z and control-c</h3>
+<p>Both commands send a signal to the shell, but they are slightly different. Control-c will &quot;send SIGINT which will interrupt the application. Usually causing it to abort, but this is up to the application to decide.&quot; Control-z will &quot;send SIGTSTP to a foreground application, effectively putting it in the background, suspended.&quot;</p>
+<p>So they're similar, but useful for completely different purposes.</p>
+<p>Credit: <a href="http://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-shell" class="uri">http://askubuntu.com/questions/510811/what-is-the-difference-between-ctrl-z-and-ctrl-c-in-the-shell</a></p>
 </body>
 </html>
