@@ -1,4 +1,9 @@
-# Command Line Bioinformatics
+---
+title: "Introduction to Unix"
+author: 
+- name: "Philipp Ross"
+  affiliation: "Pennsylvania State University"
+---
 
 Copy any commands directly into your terminal.
 
