@@ -1,8 +1,6 @@
 ---
 title: "Introduction to Unix"
-author: 
-- name: "Philipp Ross"
-  affiliation: "Pennsylvania State University"
+author: "Philipp Ross"
 ---
 
 Copy any commands directly into your terminal.
