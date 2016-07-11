@@ -1,6 +1,7 @@
 ---
 title: "Introduction to Unix"
 author: "Philipp Ross"
+date: July 11, 2016
 ---
 
 Copy any commands directly into your terminal.
